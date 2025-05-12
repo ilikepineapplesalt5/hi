@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photo Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 2rem;
+      background-color: #f5f5f5;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 5px solid #333;
+      border-radius: 10px;
+    }
+    .visit-counter {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to My Page</h1>
+  <img src="IMG_20250512_094121.jpg" alt="Displayed Image" />
+  <div class="visit-counter" id="counter">Loading visit count...</div>
+
+  <script>
+    // Increase visit count using localStorage
+    const countKey = 'visitCount';
+    let count = localStorage.getItem(countKey) || 0;
+    count++;
+    localStorage.setItem(countKey, count);
+    document.getElementById('counter').textContent = `You have visited this page ${count} time${count > 1 ? 's' : ''}.`;
+  </script>
+</body>
+</html>
